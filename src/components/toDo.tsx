@@ -4,6 +4,8 @@ import {  addTodo, removeTodo } from "../redux/notes/todoSlice";
 import { RootState } from "../redux/store"
 import '../index.css'
 
+
+
 const Todo: React.FC = () => {
   const [todo, setTodo] = useState("");
   const todos = useSelector((state: RootState) => state.todos);
@@ -37,14 +39,14 @@ const Todo: React.FC = () => {
     }
     </div>
     <div className="flex flex-col justify-around w-max mx-auto m-2">
-    <ul className="" >
-        {todos.map((todo, index) => (
+    <ul>
+        {todos.map((todo:string, index:number) => (
           <li 
           key={index}
           className="m-4 ">
-            {todo}{" "}
+            {todo}
             <button 
-            className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+            className="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
             onClick={() => handleRemoveTodo(index)}
             >Elimina</button>
           </li>
