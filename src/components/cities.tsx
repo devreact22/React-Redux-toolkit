@@ -1,5 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../redux/store";
+import { useDispatch } from "react-redux";
 import { fetchCities } from "../redux/cities/citiesSlice";
 import { useEffect, useState } from "react";
 
