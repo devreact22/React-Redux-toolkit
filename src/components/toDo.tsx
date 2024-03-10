@@ -5,7 +5,6 @@ import { RootState } from "../redux/store"
 import '../index.css'
 
 
-
 const Todo: React.FC = () => {
   const [todo, setTodo] = useState("");
   const todos = useSelector((state: RootState) => state.todos);

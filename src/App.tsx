@@ -1,12 +1,13 @@
 
-import Todo from "./components/toDo";
-import './index.css'
+//import Todo from "./components/toDo";
+import  City from "./components/cities";
 
 const App: React.FC = () => {
 
   return (
     <>
-    <Todo />   
+    {/* <Todo />    */}
+    <City />  
     </>
   );
 };
