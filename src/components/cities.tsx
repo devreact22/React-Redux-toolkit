@@ -11,11 +11,12 @@ interface Cities {
 
 const City: React.FC = () => {
   const [cities, setCities] = useState<Cities[]>([]);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCities()) // Dispatch fetch action directly
-      .then((data: any) => setCities(data.payload)) // Update state with fetched data
+      .then((data: any) => {setCities(data.payload), setLoading(false); }) // Update state with fetched data
       .catch((error: any) => console.error("Error fetching cities:", error));
   }, []);
 
@@ -23,6 +24,9 @@ const City: React.FC = () => {
 
   return (
     <>
+    {loading ? (
+      <div className="text-center p-4 m-4">Loading cities...</div>
+      ) : (
       <div className="grid grid-cols-4 gap-4 text-black m-4">
         {cities.map((city: Cities, key) => (
           <div className="w-full rounded-lg shadow-md lg:max-w-sm" key={key}>
@@ -43,6 +47,7 @@ const City: React.FC = () => {
           </div>
         ))}
       </div>
+      )}
     </>
   );
 };
